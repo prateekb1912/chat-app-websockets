@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     
     const messageInput = document.querySelector("[name=messageInput]");
     const sendBtn = document.querySelector("[name=sendButton]");
-    
+    const quitBtn = document.querySelector("[name=quitButton]");
+
     webSocketClient.onopen = () => {
         console.log("Connection Established");
 
@@ -14,6 +15,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         webSocketClient.onmessage = (message) => {
             console.log(message.data);
+        };
+
+        webSocketClient.onclose = () => {
+            console.log("Closing connection");
+        };
+
+        quitBtn.onclick = () => {
+            webSocketClient.close(1000);
         };
     };
 
