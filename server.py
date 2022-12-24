@@ -1,8 +1,12 @@
 import asyncio
 import websockets
 
+clients = []
+
 async def new_client(client_socket):
-    print("Client connected")
+    clients.append(client_socket)
+    websockets.broadcast(clients, f"New Client connected")
+    
     while True:
         try:
             data = await client_socket.recv()
@@ -10,7 +14,7 @@ async def new_client(client_socket):
             break
         print(f"Client sent: {data}")
 
-        await client_socket.send(f"Received data: {data}")
+        websockets.broadcast(clients, f"{data}")
 
 async def start_server():
     print("Server Started")
