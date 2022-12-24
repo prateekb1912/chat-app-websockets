@@ -1,17 +1,25 @@
+import json
 import asyncio
 import websockets
 
-clients = []
+clients = {}
 
 async def client_handler(client_socket):
-    clients.append(client_socket)
-    websockets.broadcast(clients, f"New Client connected")
-
     while True:
         async for message in client_socket:
-            
+            message = json.loads(message)
+            if message['type'] == 'join':
+                username = message['username']
+                clients[username] = client_socket
+
+                send_message = {
+                    "user": "Server",
+                    "text": f"{username} has entered the chat!"                    
+                }
+
+                websockets.broadcast(list(clients.values()), json.dumps(send_message))
+
             print(f"Client sent: {message}")
-            websockets.broadcast(clients, f"{message}")
 
 async def start_server():
     print("Server Started")
@@ -20,4 +28,4 @@ async def start_server():
 
 
 if __name__ == '__main__':
-    asyncio.run(start_server()) 
+    asyncio.run(start_server())
