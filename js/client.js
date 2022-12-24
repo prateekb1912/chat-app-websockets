@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     webSocketClient.onopen = () => {
         console.log("Connection Established");
-
         sendBtn.onclick = () => {
             message = messageInput.value;
             webSocketClient.send(message);
@@ -26,6 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         };
 
         quitBtn.onclick = () => {
+            webSocketClient.send("Client closing connection");
             webSocketClient.close(1000);
         };
     };

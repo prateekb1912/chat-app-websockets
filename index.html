@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket Client</title>
+    <title>Join Chat Room</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="messages"></div>
+    <div class="join-container">
+        <form action="chat.html">
+            <div class="form-control">
+                <input type="text" name="username" class="input-field" placeholder="Username" required>
+            </div>
+            <button type="submit" class="btn">Join Chat</button>
 
-    <div class="sendMessage">
-        <input type="text" name="messageInput">
-        <input type="submit" value="Send Message" name="sendButton">
+        </form>
     </div>
-
-    <input type="submit" value="Quit Chat" name="quitButton">
-
 </body>
-<script src="client.js"></script>
 </html>

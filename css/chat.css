@@ -1,0 +1,26 @@
+#chat-form {
+    display: flex;
+}
+
+#messageInput {
+    width: 100%;
+    padding: 12px;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+.btn {
+    display: inline;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 16px;
+    opacity: 0.9;
+    font-size: 16px;
+  }
+  
+.btn:hover {
+    opacity: 1;
+}

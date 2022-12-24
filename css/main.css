@@ -1,0 +1,43 @@
+.join-container {
+    margin: 80px auto;
+    max-width: 500px;
+    padding: 16px;
+    color: #fff;
+}
+
+.form-control {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    margin-bottom: 16px;
+    margin-left: 25%;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    outline: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
+
+.btn {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin-left: 25%;
+    opacity: 0.9;
+    font-size: 24px;
+    font-weight: 400;
+  }
+  
+.btn:hover {
+    opacity: 1;
+}
