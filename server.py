@@ -3,9 +3,14 @@ import websockets
 
 async def new_client(client_socket):
     print("Client connected")
-    data = await client_socket.recv()
+    while True:
+        try:
+            data = await client_socket.recv()
+        except websockets.ConnectionClosedOK:
+            break
+        print(f"Client sent: {data}")
 
-    print(f"Client sent: {data}")
+        await client_socket.send(f"Received data: {data}")
 
 async def start_server():
     print("Server Started")
